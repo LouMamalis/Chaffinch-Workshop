@@ -21,11 +21,20 @@ t.test(data = chaff2, #two sample t.test significant difference between male and
        mass ~ sex,
        var.equal = T)
 
-#ggplot(data = chaff2,
-       aes(x = mean, y = residual)) +
-  geom_point()
 
-fig 1 <- ggplot(chaff2, aes(sex, mass)) +
+fig1 <- ggplot(chaff2, aes(x = sex, y = mass)) +
   geom_boxplot()
 
-ggsave
+units <- "in"  
+fig_w <- 3.5
+fig_h <- fig_w
+dpi <- 300
+device <- "tiff"
+
+ggsave("fig1-chaff.tiff",
+       plot = fig1,
+       device = device,
+       width = fig_w,
+       height = fig_h,
+       units = units,
+       dpi = dpi)
