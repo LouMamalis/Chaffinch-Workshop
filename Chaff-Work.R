@@ -20,3 +20,10 @@ chaff2 %>% group_by(sex) %>%
 t.test(data = chaff2, #two sample t.test significant difference between male and female mass 
        mass ~ sex,
        var.equal = T)
+
+ggplot(data = chaff2,
+       aes(x = mean, y = residual)) +
+  geom_point()
+
+ggplot(chaff2, aes(sex, mass)) +
+  geom_boxplot()
